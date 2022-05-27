@@ -5,7 +5,7 @@ namespace WebAPI2BoilerPlate.IRepository
 {
     public interface ICustomerRepository
     {
-        void GetCustomerById(int id);
+        Customer GetCustomerById(int id);
 
         void DeleteCustomerById(int id);
 

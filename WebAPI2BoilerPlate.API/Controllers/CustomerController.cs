@@ -16,31 +16,35 @@ namespace WebAPI2BoilerPlate.Controllers
         {
             _customerService = customerService;
         }
+
         // GET api/values
+        [HttpGet]
         public IHttpActionResult GetCustomers()
         {
             return Ok(_customerService.GetCustomers());
         }
 
         // GET api/values/5
-        public string Get(int id)
+        [HttpGet]
+        public IHttpActionResult GetCustomerById(int id)
         {
-            return "value";
+            return Ok(_customerService.GetCustomerById(id));
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        [HttpPost]
+        public IHttpActionResult Post([FromBody] Customer customer)
         {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
-        {
+            _customerService.SaveCustomer(customer);
+            return Ok();
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
+            _customerService.DeleteCustomerById(id);
+            return Ok();
         }
     }
 }

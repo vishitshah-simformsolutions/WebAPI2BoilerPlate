@@ -17,14 +17,14 @@ namespace WebAPI2BoilerPlate.Business
         {
             _customerRepository = customerRepository;
         }
-        public void GetCustomerById(int id)
+        public Customer GetCustomerById(int id)
         {
-
+            return _customerRepository.GetCustomerById(id);
         }
 
         public void DeleteCustomerById(int id)
         {
-
+            _customerRepository.DeleteCustomerById(id);
         }
 
         public List<Customer> GetCustomers()
@@ -34,7 +34,7 @@ namespace WebAPI2BoilerPlate.Business
 
         public void SaveCustomer(Customer customer)
         {
-
+            _customerRepository.SaveCustomer(customer);
         }
     }
 }

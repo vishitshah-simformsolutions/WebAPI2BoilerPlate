@@ -9,7 +9,7 @@ namespace WebAPI2BoilerPlate.IBusiness
 {
     public interface ICustomerService
     {
-        void GetCustomerById(int id);
+        Customer GetCustomerById(int id);
 
         void DeleteCustomerById(int id);
 
