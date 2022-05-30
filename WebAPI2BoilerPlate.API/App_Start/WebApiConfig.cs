@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Http.Dependencies;
+﻿using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 using Unity;
 using Unity.Lifetime;
 using WebAPI2BoilerPlate.Business;
+using WebAPI2BoilerPlate.Exception;
 using WebAPI2BoilerPlate.IBusiness;
 using WebAPI2BoilerPlate.IRepository;
 using WebAPI2BoilerPlate.Repository;
@@ -26,6 +24,8 @@ namespace WebAPI2BoilerPlate
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
 
             var container = new UnityContainer();
             container.RegisterType<ICustomerRepository, CustomerRepository>(new HierarchicalLifetimeManager());

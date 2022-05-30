@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using WebAPI2BoilerPlate.IBusiness;
 using WebAPI2BoilerPlate.Model;
 
@@ -17,21 +12,32 @@ namespace WebAPI2BoilerPlate.Controllers
             _customerService = customerService;
         }
 
-        // GET api/values
+        /// <summary>
+        /// Get All Customer
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IHttpActionResult GetCustomers()
         {
             return Ok(_customerService.GetCustomers());
         }
 
-        // GET api/values/5
+        /// <summary>
+        /// Get Customer By Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IHttpActionResult GetCustomerById(int id)
         {
             return Ok(_customerService.GetCustomerById(id));
         }
 
-        // POST api/values
+        /// <summary>
+        /// Save Customer
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
         [HttpPost]
         public IHttpActionResult Post([FromBody] Customer customer)
         {
@@ -39,7 +45,11 @@ namespace WebAPI2BoilerPlate.Controllers
             return Ok();
         }
 
-        // DELETE api/values/5
+        /// <summary>
+        /// Delete Customer By Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {

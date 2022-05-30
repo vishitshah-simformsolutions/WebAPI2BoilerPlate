@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +12,6 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
 using System.Xml.Linq;
-using Newtonsoft.Json;
 
 namespace WebAPI2BoilerPlate.Areas.HelpPage
 {
@@ -330,7 +330,7 @@ namespace WebAPI2BoilerPlate.Areas.HelpPage
                         type.Name));
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 sample = new InvalidSample(String.Format(
                     CultureInfo.CurrentCulture,
@@ -354,7 +354,7 @@ namespace WebAPI2BoilerPlate.Areas.HelpPage
             return sample;
         }
 
-        internal static Exception UnwrapException(Exception exception)
+        internal static System.Exception UnwrapException(System.Exception exception)
         {
             AggregateException aggregateException = exception as AggregateException;
             if (aggregateException != null)

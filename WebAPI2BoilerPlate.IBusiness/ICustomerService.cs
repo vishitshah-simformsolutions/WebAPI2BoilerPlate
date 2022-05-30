@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WebAPI2BoilerPlate.Model;
 
 namespace WebAPI2BoilerPlate.IBusiness
