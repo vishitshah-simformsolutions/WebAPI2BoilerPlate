@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Microsoft.Owin.Security.OAuth;
+using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 using Unity;
 using Unity.Lifetime;
@@ -14,8 +15,6 @@ namespace WebAPI2BoilerPlate
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -24,6 +23,11 @@ namespace WebAPI2BoilerPlate
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Web API configuration and services
+            // Configure Web API to use only bearer token authentication.
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
 

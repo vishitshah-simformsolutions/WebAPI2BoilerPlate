@@ -12,5 +12,7 @@ namespace WebAPI2BoilerPlate.IBusiness
         List<Customer> GetCustomers();
 
         void SaveCustomer(Customer customer);
+
+        User GetUser(string email, string password);
     }
 }

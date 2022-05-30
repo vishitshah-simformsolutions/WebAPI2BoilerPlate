@@ -4,6 +4,7 @@ using WebAPI2BoilerPlate.Model;
 
 namespace WebAPI2BoilerPlate.Controllers
 {
+    [Authorize]
     public class CustomerController : ApiController
     {
         private readonly ICustomerService _customerService;

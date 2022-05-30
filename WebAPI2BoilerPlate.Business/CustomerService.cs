@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using WebAPI2BoilerPlate.IBusiness;
 using WebAPI2BoilerPlate.IRepository;
 using WebAPI2BoilerPlate.Model;
@@ -9,6 +10,10 @@ namespace WebAPI2BoilerPlate.Business
     {
         private readonly ICustomerRepository _customerRepository;
 
+        public CustomerService()
+        {
+
+        }
         public CustomerService(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
@@ -31,6 +36,25 @@ namespace WebAPI2BoilerPlate.Business
         public void SaveCustomer(Customer customer)
         {
             _customerRepository.SaveCustomer(customer);
+        }
+
+        public User GetUser(string email, string password)
+        {
+            //Make actual db call
+            if (email != "vishit@simformsolutions.com" && password != "simform@123")
+            {
+                return null;
+            }
+
+            var user = new User
+            {
+                UserId = 1,
+                UserName = "Vishit Shah",
+                Email = "vishit@simformsolutions.com",
+                Password = string.Empty,
+            };
+
+            return user;
         }
     }
 }
