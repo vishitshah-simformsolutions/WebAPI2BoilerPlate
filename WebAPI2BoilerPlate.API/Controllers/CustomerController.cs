@@ -7,6 +7,7 @@ namespace WebAPI2BoilerPlate.Controllers
     public class CustomerController : ApiController
     {
         private readonly ICustomerService _customerService;
+
         public CustomerController(ICustomerService customerService)
         {
             _customerService = customerService;

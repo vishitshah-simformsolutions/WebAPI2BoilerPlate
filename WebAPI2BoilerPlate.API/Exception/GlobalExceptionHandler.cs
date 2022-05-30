@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Results;
 
@@ -21,12 +17,15 @@ namespace WebAPI2BoilerPlate.Exception
         {
             // Access Exception using context.Exception;
             string errorMessage = context.Exception.ToString();
+
+            Logging.Logger.Error(context.Exception, context.Exception.Message);
+
             var response = context.Request.CreateResponse(HttpStatusCode.InternalServerError,
                 new
                 {
                     Message = errorMessage
                 });
-            response.Headers.Add("X-Error", errorMessage);
+            response.Headers.Add("X-Error", context.Exception.Message);
             context.Result = new ResponseMessageResult(response);
         }
     }

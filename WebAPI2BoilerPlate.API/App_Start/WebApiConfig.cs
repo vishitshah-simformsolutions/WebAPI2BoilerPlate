@@ -32,7 +32,5 @@ namespace WebAPI2BoilerPlate
             container.RegisterType<ICustomerService, CustomerService>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
         }
-
     }
-
 }
